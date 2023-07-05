@@ -14,11 +14,5 @@ pipeline {
         sh 'npm run start -- -p 8081'
       }
     }
-    
-    stage('Deploy') {
-      steps {
-        sh 'npm run deploy'  // Customize this command based on your deployment setup
-      }
-    }
   }
 }
