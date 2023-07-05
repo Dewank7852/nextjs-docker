@@ -4,7 +4,7 @@ export default () => (
   <div>
     <h1>About!</h1>
     <Link href="/">
-      <button>Home - Dewank</button>
+      <button>Home - Dewank Chauhan</button>
     </Link>
   </div>
 
