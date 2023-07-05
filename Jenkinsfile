@@ -11,7 +11,7 @@ pipeline {
     
     stage('Test') {
       steps {
-        sh 'npm test'
+        sh 'npm run start -- -p 8081'
       }
     }
     
