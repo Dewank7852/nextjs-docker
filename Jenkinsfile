@@ -15,7 +15,7 @@ pipeline {
     } 
     stage('Deploy') {
       steps {
-        sh 'npm run deploy'
+        sh 'npm run start -- -p 8081'
       }
     }
   }
