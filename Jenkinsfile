@@ -5,13 +5,17 @@ pipeline {
     stage('Build') {
       steps {
         sh 'npm install'
-        sh 'npm run build'
-      }
+        }
     }
     
-    stage('Test') {
+   stage('Build') {
       steps {
-        sh 'npm run start -- -p 8081'
+        sh 'npm run build'
+      }
+    } 
+    stage('Deploy') {
+      steps {
+        sh 'npm run deploy'
       }
     }
   }
