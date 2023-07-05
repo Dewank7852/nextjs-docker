@@ -1,23 +1,24 @@
 pipeline {
-    agent {
-        docker {
-            image 'dewankchauhan7852/next'
-            args '-p 8000:8000' 
-        }
+  agent any
+  
+  stages {
+    stage('Build') {
+      steps {
+        sh 'npm install'
+        sh 'npm run build'
+      }
     }
-    environment {
-        CI = 'true'
+    
+    stage('Test') {
+      steps {
+        sh 'npm test'
+      }
     }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh './jenkins/scripts/test.sh'
-            }
-        }
+    
+    stage('Deploy') {
+      steps {
+        sh 'npm run deploy'  // Customize this command based on your deployment setup
+      }
     }
+  }
 }
