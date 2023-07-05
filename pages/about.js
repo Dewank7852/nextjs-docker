@@ -7,4 +7,4 @@ export default () => (
       <button>Home</button>
     </Link>
   </div>
-
+);
