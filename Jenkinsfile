@@ -1,34 +1,14 @@
 pipeline {
-    agent any
-    
+    agent {
+        docker {
+            image 'dewankchauhan7852/next:latest' 
+            args '-p 3000:3000' 
+        }
+    }
     stages {
-        stage('Checkout') {
+        stage('Build') { 
             steps {
-                git 'https://github.com/Dewank7852/nextjs-docker.git'
-            }
-        }
-        
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm ci'
-            }
-        }
-        
-        stage('Build') {
-            steps {
-                sh 'npm run build'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                sh 'npm start'
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                // Add your deployment steps here
+                sh 'npm install' 
             }
         }
     }
